@@ -17,7 +17,7 @@
 			<div class="page unitBox">
 				<div class="accountInfo">
 					<div class="alertInfo">
-						<h2><a target="_blank" href="{$Think.config.bbsurl}/doc/dwz-user-guide.pdf">DWZ框架使用手册(PDF)</a></h2>
+						<h2><a target="_blank" href="<?php echo base_url('/doc/dwz-user-guide.pdf'); ?>">DWZ框架使用手册(PDF)</a></h2>
 						<a href="#" target="_blank">DWZ-thinkphp使用手册</a>
 					</div>
 					<div class="right">
@@ -27,12 +27,11 @@
 					<p>Welcome, {$Think.session.loginUserName}</p>
 				</div>
 				<div class="pageFormContent" layoutH="80">
-					<p>在线演示地址 {$Think.config.demourl}</p>
-					<p>DWZ框架使用手册 <a href="<?php echo base_url('/doc/dwz-user-guide.pdf');?>" target="_blank">{$Think.config.demourl}/doc/dwz-user-guide.pdf</a></p>
-					<p>Ajax开发视频教材 <a href="<?php echo base_url('/doc/dwz-ajax-develop.swf');?>" target="_blank">{$Think.config.demourl}/doc/dwz-ajax-develop.swf</a></p>
-					<p>DWZ框架演示视频 <a href="<?php echo base_url('/doc/dwz-user-guide.swf');?>" target="_blank">{$Think.config.demourl}/doc/dwz-user-guide.swf</a></p>
+					<p>在线演示地址 <?php echo base_url();?></p>
+					<p>DWZ框架使用手册 <a href="<?php echo base_url('/doc/dwz-user-guide.pdf');?>" target="_blank"><?php echo base_url('/doc/dwz-user-guide.pdf');?></a></p>
+					<p>Ajax开发视频教材 <a href="<?php echo base_url('/doc/dwz-ajax-develop.swf');?>" target="_blank"><?php echo base_url('/doc/dwz-ajax-develop.swf');?></a></p>
+					<p>DWZ框架演示视频 <a href="<?php echo base_url('/doc/dwz-user-guide.swf');?>" target="_blank"><?php echo base_url('/doc/dwz-user-guide.swf');?></a></p>
 					<p>Google Code下载 <a href="http://code.google.com/p/dwz/" target="_blank">http://code.google.com/p/dwz/</a></p>
-
 					<div class="divider"></div>
 					<h2>dwz_thinkphp版本介绍:</h2>
 							<pre style="margin: 5px; line-height: 1.4em;">
@@ -44,9 +43,7 @@
 					<div class="divider"></div>
 					<h2>有偿服务请联系:</h2>
 					<p style="color:red">杜权	suport@j-ui.com</p>
-
 				</div>
-
 			</div>
 		</div>
 	</div>

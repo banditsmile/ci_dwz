@@ -23,23 +23,23 @@
 	<script type="text/javascript">
 		function fleshVerify(){
 			//重载验证码
-			$('#verifyImg').attr("src", '__APP__/Public/verify/'+new Date().getTime());
+			$('#verifyImg').attr("src", "<?php echo base_url('application/Public/verify/'.new Date().getTime());?>");
 		}
 		function dialogAjaxMenu(json){
 			dialogAjaxDone(json);
 			if (json.statusCode == DWZ.statusCode.ok){
-				$("#sidebar").loadUrl("__APP__/Public/menu");
+				$("#sidebar").loadUrl("<?php echo base_url('application/Public/menu');?>");
 			}
 		}
 		function navTabAjaxMenu(json){
 			navTabAjaxDone(json);
 			if (json.statusCode == DWZ.statusCode.ok){
-				$("#sidebar").loadUrl("__APP__/Public/menu");
+				$("#sidebar").loadUrl("<?php echo base_url('application/Public/menu');?>");
 			}
 		}
 		$(function(){
 			DWZ.init("<?php echo base_url('public/dwz/dwz.frag.xml');?>", {
-				loginUrl:"__APP__/Public/login_dialog", loginTitle:"登录",	// 弹出登录对话框
+				loginUrl:"<?php echo base_url('application/Public/login_dialog');?>", loginTitle:"登录",	// 弹出登录对话框
 //		loginUrl:"__APP__/Public/login",	//跳到登录页面
 				statusCode:{ok:1,error:0},
 				keys:{statusCode:"status", message:"info"},
@@ -53,17 +53,16 @@
 		});
 	</script>
 </head>
-
 <body scroll="no">
 <div id="layout">
 	<div id="header">
 		<div class="headerNav">
 			<a class="logo" href="__APP__">Logo</a>
 			<ul class="nav">
-				<li><a href="__APP__/Public/main" target="dialog" width="580" height="360" rel="sysInfo">系统消息</a></li>
-				<li><a href="__APP__/Public/password/" target="dialog" mask="true">修改密码</a></li>
-				<li><a href="__APP__/Public/profile/" target="dialog" mask="true">修改资料</a></li>
-				<li><a href="__APP__/Public/logout/">退出</a></li>
+				<li><a href="<?php echo base_url('application/Public/main');?>" target="dialog" width="580" height="360" rel="sysInfo">系统消息</a></li>
+				<li><a href="<?php echo base_url('application/Public/password');?>" target="dialog" mask="true">修改密码</a></li>
+				<li><a href="<?php echo base_url('application/Public/profile');?>" target="dialog" mask="true">修改资料</a></li>
+				<li><a href="<?php echo base_url('application/Public/logout');?>">退出</a></li>
 			</ul>
 			<ul class="themeList" id="themeList">
 				<li theme="default"><div class="selected">蓝色</div></li>
@@ -74,16 +73,33 @@
 			</ul>
 		</div>
 	</div>
-
 	<div id="leftside">
 		<div id="sidebar_s">
 			<div class="collapse">
 				<div class="toggleCollapse"><div></div></div>
 			</div>
 		</div>
-
 		<div id="sidebar">
 			<div class="toggleCollapse"><h2>主菜单</h2><div>收缩</div></div>
-			<include file="Public:menu" />
+			<div class="accordion" fillSpace="sideBar">
+				<div class="accordionHeader">
+					<h2><span>Folder</span>应用</h2>
+				</div>
+				<div class="accordionContent">
+					<ul class="tree treeFolder">
+						<volist id="item" name="menu" >
+							<neq name="item['name']|strtolower" value="public" >
+								<neq name="item['name']|strtolower" value="index" >
+									<eq name="item['access']" value="1">
+										<li><a href="__APP__/{$item['name']}/index/" target="navTab" rel="{$item['name']}">{$item['title']}</a></li>
+									</eq>
+								</neq>
+							</neq>
+						</volist>
+
+					</ul>
+
+				</div>
+			</div>
 		</div>
 	</div>
