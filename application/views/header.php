@@ -23,7 +23,7 @@
 	<script type="text/javascript">
 		function fleshVerify(){
 			//重载验证码
-			$('#verifyImg').attr("src", "<?php echo base_url('application/Public/verify/'.new Date().getTime());?>");
+			$('#verifyImg').attr("src", "<?php echo base_url('application/Public/verify/');?>"+(new Date().getTime()));
 		}
 		function dialogAjaxMenu(json){
 			dialogAjaxDone(json);
@@ -57,7 +57,7 @@
 <div id="layout">
 	<div id="header">
 		<div class="headerNav">
-			<a class="logo" href="__APP__">Logo</a>
+			<a class="logo" href="<?php echo base_url('application/');?>">Logo</a>
 			<ul class="nav">
 				<li><a href="<?php echo base_url('application/Public/main');?>" target="dialog" width="580" height="360" rel="sysInfo">系统消息</a></li>
 				<li><a href="<?php echo base_url('application/Public/password');?>" target="dialog" mask="true">修改密码</a></li>
