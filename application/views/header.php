@@ -87,16 +87,18 @@
 				</div>
 				<div class="accordionContent">
 					<ul class="tree treeFolder">
-						<volist id="item" name="menu" >
-							<neq name="item['name']|strtolower" value="public" >
-								<neq name="item['name']|strtolower" value="index" >
-									<eq name="item['access']" value="1">
-										<li><a href="__APP__/{$item['name']}/index/" target="navTab" rel="{$item['name']}">{$item['title']}</a></li>
-									</eq>
-								</neq>
-							</neq>
-						</volist>
-
+<!--						<volist id="item" name="menu" >-->
+<!--							<neq name="item['name']|strtolower" value="public" >-->
+<!--								<neq name="item['name']|strtolower" value="index" >-->
+<!--									<eq name="item['access']" value="1">-->
+<!--										<li><a href="__APP__/{$item['name']}/index/" target="navTab" rel="{$item['name']}">{$item['title']}</a></li>-->
+<!--									</eq>-->
+<!--								</neq>-->
+<!--							</neq>-->
+<!--						</volist>-->
+						<?php foreach($menu as $item):?>
+							<li><a href="<?php echo base_url("application/{$item['name']}/index");?>" target="navTab" rel="<?php echo $item['name'];?>"><?php echo $item['title'];?></a></li>
+						<?php endforeach; ?>
 					</ul>
 
 				</div>

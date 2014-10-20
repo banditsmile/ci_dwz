@@ -22,8 +22,11 @@ class Index extends MY_Controller {
 	}
 	public function index()
 	{
+		$this->load->model('node_model','node');
+		$menu = $this->node->menu();
+		$data['menu']=$menu;
 		$this->load->helper('url');
-		$this->load->view('header');
+		$this->load->view('header',$data);
 		$this->load->view('index');
 		$this->load->view('footer');
 	}
