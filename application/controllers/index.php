@@ -26,9 +26,9 @@ class Index extends MY_Controller {
 		$menu = $this->node->menu();
 		$data['menu']=$menu;
 		$this->load->helper('url');
-		$this->load->view('header',$data);
-		$this->load->view('index');
-		$this->load->view('footer');
+		$this->load->view('index/header',$data);
+		$this->load->view('index/index');
+		$this->load->view('index/footer');
 	}
 }
 
