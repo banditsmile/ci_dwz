@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/work/list/';
+$config['base_url']	= 'http://localhost/ci_dwz/';
 
 /*
 |--------------------------------------------------------------------------
