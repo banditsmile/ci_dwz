@@ -6,5 +6,7 @@
  * Time: 16:48
  */
 class node_model extends MY_model{
-
+	public function __construct(){
+		parent::__construct();
+	}
 }
